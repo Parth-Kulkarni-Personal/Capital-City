@@ -5,11 +5,22 @@ import requests
 
 def start():
 
-    print("Please selection the options below: Enter 1 to find a country national capital. Enter Option 2 to find a state capital (Only works for Australia)")
+    print("Please selection the options below: Enter 1 to find a country national capital. Enter Option 2 to find a state capital (Only works for Australia). Enter 'q' to quit. ")
 
-    user_choice = int(input())
+    user_choice = input()
 
-    if user_choice == 1:
+    if user_choice == 'q':
+        exit(0)
+
+    if int(user_choice) == 1:
+        country()
+
+
+    elif int(user_choice) == 2:
+        state()
+        
+def country():
+
 
         print("Data not guaranteed to be accurate, as it's sourced from third party-source.")
 
@@ -50,8 +61,11 @@ def start():
             
         if dest_found == False:
             print("Sorry. :( You have either not entered a valid country or the website is missing data.")
+        
+        start()
 
-    else:
+
+def state():
 
         print("Data not guaranteed to be accurate, as it's sourced from third party-source.")
         
@@ -88,6 +102,9 @@ def start():
 
         if dest_found == False:
             print("Sorry. You have entered a wrong State (Check Spelling)")
+        
+        start()
+
 
 if __name__ == "__main__":
 
